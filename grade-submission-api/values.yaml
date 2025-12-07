@@ -4,7 +4,7 @@ microservice:
   replicas: 2
 
 workload:  
-  image: rmahmoudnasser8080/grade-submission-api:2.3.0
+  image: mahmoudnasser8080/grade-submission-api:2.3.0
   port: 3000
   resources:
     memory: "128Mi"

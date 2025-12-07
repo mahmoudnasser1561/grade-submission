@@ -12,7 +12,7 @@ spec:
     type: RollingUpdate
     rollingUpdate:
       maxUnavailable: 50%
-      maxSurge: 
+      maxSurge: 1
   template:
     metadata:
       labels:
@@ -23,6 +23,7 @@ spec:
       containers:
       - name: {{ .Values.microservice.name }}
         image: {{ .Values.workload.image }}
+        imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
             path: /healthz
@@ -32,7 +33,7 @@ spec:
         readinessProbe:
           httpGet:
             path: /readyz
-            port: {{ .Values.workload.livenessDelay }}
+            port: {{ .Values.workload.port }}
           periodSeconds: 5
         envFrom:
           - configMapRef:
