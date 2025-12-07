@@ -1,0 +1,20 @@
+microservice:  
+  name: grade-submission-api
+  namespace: grade-submission
+  replicas: 2
+
+workload:  
+  image: rmahmoudnasser8080/grade-submission-api:2.3.0
+  port: 3000
+  resources:
+    memory: "128Mi"
+    cpu: "128m"
+  livenessDelay: 15
+
+env:    
+  MONGODB_HOST: mongodb
+  MONGODB_PORT: "27017"
+
+secrets: 
+  MONGODB_USER: 'YWRtaW4='
+  MONGODB_PASSWORD: 'cGFzc3dvcmQxMjM='
