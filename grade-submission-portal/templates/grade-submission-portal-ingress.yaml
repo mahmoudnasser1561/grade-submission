@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: grade-submission-portal-ingress
-  namespace: grade-submission
+  name: {{ .Values.microservice.name }}-ingress
+  namespace: {{ .Values.microservice.namespace }}
 spec:
   ingressClassName: nginx
   rules:     
@@ -12,6 +12,6 @@ spec:
         path: "/"    
         backend:
           service:
-            name: grade-submission-portal
+            name: {{ .Values.microservice.name }}
             port: 
-              number: 5001
+              number: {{ .Values.workload.port }}
