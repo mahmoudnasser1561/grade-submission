@@ -12,10 +12,12 @@ console.log('MONGODB_PASSWORD:', process.env.MONGODB_PASSWORD);
 console.log('MONGODB_HOST:', process.env.MONGODB_HOST);
 console.log('MONGODB_PORT:', process.env.MONGODB_PORT);
 
-const URI = `mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}` +
-            `@${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/`;
+// const URI = `mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}` +
+//             `@${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/`;
 
-mongoose.connect(URI, {
+const MONGODB_URI = `mongodb://localhost:27017/grades`;
+
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
