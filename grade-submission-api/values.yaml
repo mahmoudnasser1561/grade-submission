@@ -18,3 +18,4 @@ env:
 secrets: 
   MONGODB_USER: 'YWRtaW4='
   MONGODB_PASSWORD: 'cGFzc3dvcmQxMjM='
+  MONGODB_URI: 'mongodb://user:password123@mongodb-grade-submission-svc.mongodb.svc.cluster.local:27017/grades'
